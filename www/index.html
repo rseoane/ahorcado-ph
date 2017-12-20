@@ -8,79 +8,103 @@
 		
 		<!-- CSS de Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet" >
-		
-		<!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
 		<style>
-			.letra{
-				position: relative;
-				font-size: 50px;
-				font-weight: 700;
-			}
+                    body{
+                        margin: 0 3vw;
+                        height: 100vh;
+                        display: -webkit-box;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -webkit-box-orient: vertical;
+                        -webkit-box-direction: normal;
+                            -ms-flex-direction: column;
+                                flex-direction: column;
+                    }
+                    #palabra{
+                        text-align: center;
+                    }
+                    .letra{
+			position: relative;
+			font-size: 8vw;
+			font-weight: 700;
+                    }
+                    #alfabeto{
+                        margin: 1em 0;
+                        display: -webkit-box;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -ms-flex-wrap: wrap;
+                            flex-wrap: wrap;
+                        -webkit-box-pack: justify;
+                           -ms-flex-pack: justify;
+                         justify-content: space-between;
+                        -ms-flex-line-pack: justify;
+                             align-content: space-between;
+                    }
+                    #alfabeto .btn{
+                        width: 2.5em;
+                        margin: 1px;
+                    }
+                    #ahorcado{
+                        max-width: 100%;
+                    }
+                    #ahorcado img{
+                       max-width: 100%;
+                    }
 		</style>
 	</head>
 	<body>
-		<header class="jumbotron">
-			<h1>Juego del ahorcado</h1>
-			<p>Tienes siete intentos para averiguar la palabra. ¡Suerte!</p>
-		</header>
-		<main>
-			<div id="palabra" class="center-block"></div>
-			<div id="alfabeto">
-				<button class="btn btn-primary" data-letra="a|á">A</button>
-				<button class="btn btn-primary" data-letra="b">B</button>
-				<button class="btn btn-primary" data-letra="c">C</button>
-				<button class="btn btn-primary" data-letra="d">D</button>
-				<button class="btn btn-primary" data-letra="e|é">E</button>
-				<button class="btn btn-primary" data-letra="f">F</button>
-				<button class="btn btn-primary" data-letra="g">G</button>
-				<button class="btn btn-primary" data-letra="h">H</button>
-				<button class="btn btn-primary" data-letra="i|í">I</button>
-				<button class="btn btn-primary" data-letra="j">J</button>
-				<button class="btn btn-primary" data-letra="k">K</button>
-				<button class="btn btn-primary" data-letra="l">L</button>
-				<button class="btn btn-primary" data-letra="m">M</button>
-				<button class="btn btn-primary" data-letra="n">N</button>
-				<button class="btn btn-primary" data-letra="ñ">Ñ</button>
-				<button class="btn btn-primary" data-letra="o|ó">O</button>
-				<button class="btn btn-primary" data-letra="p">P</button>
-				<button class="btn btn-primary" data-letra="q">Q</button>
-				<button class="btn btn-primary" data-letra="r">R</button>
-				<button class="btn btn-primary" data-letra="s">S</button>
-				<button class="btn btn-primary" data-letra="t">T</button>
-				<button class="btn btn-primary" data-letra="u|ú|ü">U</button>
-				<button class="btn btn-primary" data-letra="v">V</button>
-				<button class="btn btn-primary" data-letra="W">W</button>
-				<button class="btn btn-primary" data-letra="x">X</button>
-				<button class="btn btn-primary" data-letra="Y">Y</button>
-				<button class="btn btn-primary" data-letra="z">Z</button>
-			</div>
-			<figure id="ahorcado">
-				<img id="img0" src="img/ahorcado0.png">
-				<img id="img1" src="img/ahorcado1.png">
-				<img id="img2" src="img/ahorcado2.png">
-				<img id="img3" src="img/ahorcado3.png">
-				<img id="img4" src="img/ahorcado4.png">
-				<img id="img5" src="img/ahorcado5.png">
-				<img id="img6" src="img/ahorcado6.png">
-				<img id="img7" src="img/ahorcado7.png">
-				<img id="img8" src="img/ahorcado8.png">
-			</figure>
-		</main>
-		<!-- Librería jQuery requerida por los plugins de JavaScript -->
-		<script
-		src="js/jquery-3.2.1.min.js"></script>
-		
-		<!-- Todos los plugins JavaScript de Bootstrap (también puedes
-			incluir archivos JavaScript individuales de los únicos
-			plugins que utilices) -->
-		<script type="text/javascript" src="js/cordova.js"></script>
-		<script src="js/bootstrap.min.js" ></script>
-		<script src="js/diccionario.js"></script>
-		<script>
+            <header>
+		<h1>Juego del ahorcado</h1>
+                <div id="palabra"></div>
+            </header>
+
+            <div id="alfabeto">
+		<button class="btn btn-primary" data-letra="a|á">A</button>
+		<button class="btn btn-primary" data-letra="b">B</button>
+		<button class="btn btn-primary" data-letra="c">C</button>
+		<button class="btn btn-primary" data-letra="d">D</button>
+		<button class="btn btn-primary" data-letra="e|é">E</button>
+		<button class="btn btn-primary" data-letra="f">F</button>
+		<button class="btn btn-primary" data-letra="g">G</button>
+		<button class="btn btn-primary" data-letra="h">H</button>
+		<button class="btn btn-primary" data-letra="i|í">I</button>
+		<button class="btn btn-primary" data-letra="j">J</button>
+		<button class="btn btn-primary" data-letra="k">K</button>
+		<button class="btn btn-primary" data-letra="l">L</button>
+		<button class="btn btn-primary" data-letra="m">M</button>
+		<button class="btn btn-primary" data-letra="n">N</button>
+		<button class="btn btn-primary" data-letra="ñ">Ñ</button>
+		<button class="btn btn-primary" data-letra="o|ó">O</button>
+		<button class="btn btn-primary" data-letra="p">P</button>
+		<button class="btn btn-primary" data-letra="q">Q</button>
+		<button class="btn btn-primary" data-letra="r">R</button>
+		<button class="btn btn-primary" data-letra="s">S</button>
+		<button class="btn btn-primary" data-letra="t">T</button>
+		<button class="btn btn-primary" data-letra="u|ú|ü">U</button>
+		<button class="btn btn-primary" data-letra="v">V</button>
+		<button class="btn btn-primary" data-letra="W">W</button>
+		<button class="btn btn-primary" data-letra="x">X</button>
+		<button class="btn btn-primary" data-letra="Y">Y</button>
+		<button class="btn btn-primary" data-letra="z">Z</button>
+            </div>
+            <figure id="ahorcado">
+		<img id="img0" src="img/ahorcado0.png">
+		<img id="img1" src="img/ahorcado1.png">
+		<img id="img2" src="img/ahorcado2.png">
+		<img id="img3" src="img/ahorcado3.png">
+		<img id="img4" src="img/ahorcado4.png">
+		<img id="img5" src="img/ahorcado5.png">
+		<img id="img6" src="img/ahorcado6.png">
+		<img id="img7" src="img/ahorcado7.png">
+		<img id="img8" src="img/ahorcado8.png">
+            </figure>
+            <button id="reinicio" class="btn btn-warning">Reiniciar</button>
+            <script src="js/jquery-3.2.1.min.js"></script>
+            <script type="text/javascript" src="js/cordova.js"></script>
+            <script src="js/bootstrap.min.js" ></script>
+            <script src="js/diccionario.js"></script>
+            <script>
 			window.onload = function() {
 				init();
 			};
@@ -120,6 +144,7 @@
 						});
 					};
 				});
+                                $('#reinicio').click(init);
 			};
 			
 		</script>
